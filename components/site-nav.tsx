@@ -15,7 +15,7 @@ export function SiteNav() {
         </a>
         <a
           href="#explain"
-          className="rounded-full bg-white px-3.5 py-2 text-[13.5px] font-medium text-ink transition-transform hover:scale-[1.03]"
+          className="rounded-full bg-white px-3.5 py-2 text-[13.5px] font-medium text-indigo-900 transition-transform hover:scale-[1.03]"
         >
           Explain a repo
         </a>

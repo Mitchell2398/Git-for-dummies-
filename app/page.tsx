@@ -11,17 +11,6 @@ export default function Home() {
         {/* Hero */}
         <section className="pt-28 sm:pt-32">
           <div className="mx-auto max-w-2xl text-center">
-            <div
-              className="animate-rise inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 text-[12.5px] text-ink-soft"
-              style={{ animationDelay: "0.05s" }}
-            >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green" />
-              </span>
-              A one-page explainer &amp; a walkthrough video, from one link
-            </div>
-
             <h1
               className="animate-rise mt-6 font-display text-[clamp(2.4rem,6vw,3.9rem)] font-semibold leading-[1] tracking-[-0.03em] text-ink"
               style={{ animationDelay: "0.12s" }}
