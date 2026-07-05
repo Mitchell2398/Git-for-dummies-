@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/*
+  "Warm paper study" — a calm, editorial, reading-first palette.
+  Paper, not LEDs. Warm ink, muted accents. Nothing saturated.
+*/
+
+:root {
+  --paper: #faf9f6;
+  --paper-sunk: #f3f1ea;
+  --card: #ffffff;
+  --ink: #1c1b19;
+  --ink-soft: #4a4842;
+  --ink-faint: #8a877d;
+  --line: #e7e4db;
+  --line-strong: #dcd8cd;
+
+  --accent: #3f6ea3; /* warm blue */
+  --accent-soft: #eaf0f6;
+  --green: #567d5e; /* muted green */
+  --green-soft: #e9f0e9;
+  --orange: #c07a45; /* warm orange */
+  --orange-soft: #f7eee4;
+
+  --shadow-sm: 0 1px 2px rgba(28, 27, 25, 0.04);
+  --shadow-md: 0 4px 24px -8px rgba(28, 27, 25, 0.12), 0 1px 2px rgba(28, 27, 25, 0.05);
+  --shadow-lg: 0 24px 60px -20px rgba(28, 27, 25, 0.22), 0 2px 8px rgba(28, 27, 25, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --paper: #111110;
+  --paper-sunk: #1a1a18;
+  --card: #1c1b1a;
+  --ink: #eeece6;
+  --ink-soft: #b3b0a7;
+  --ink-faint: #79766e;
+  --line: #2b2a27;
+  --line-strong: #38362f;
+
+  --accent: #7aa7d6;
+  --accent-soft: #1b2632;
+  --green: #86ad8c;
+  --green-soft: #1a2620;
+  --orange: #d69a6b;
+  --orange-soft: #2a2117;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 24px -8px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111110;
+    --paper-sunk: #1a1a18;
+    --card: #1c1b1a;
+    --ink: #eeece6;
+    --ink-soft: #b3b0a7;
+    --ink-faint: #79766e;
+    --line: #2b2a27;
+    --line-strong: #38362f;
+
+    --accent: #7aa7d6;
+    --accent-soft: #1b2632;
+    --green: #86ad8c;
+    --green-soft: #1a2620;
+    --orange: #d69a6b;
+    --orange-soft: #2a2117;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 24px -8px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
+  --color-orange: var(--orange);
+  --color-orange-soft: var(--orange-soft);
+
+  --font-display: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+
+  --shadow-soft-sm: var(--shadow-sm);
+  --shadow-soft-md: var(--shadow-md);
+  --shadow-soft-lg: var(--shadow-lg);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* Subtle paper grain — atmosphere, not noise */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Reading measure for prose */
+.prose-reading p {
+  font-size: 1.075rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.prose-reading p + p {
+  margin-top: 1.15rem;
+}
+
+/* Thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 3px solid var(--paper);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
