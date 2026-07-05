@@ -3,7 +3,7 @@ import { Logo } from "./logo";
 export function SiteNav() {
   return (
     <div className="pointer-events-none fixed inset-x-0 top-4 z-40 flex justify-center px-4">
-      <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-white/10 bg-ink/90 py-1.5 pl-2 pr-1.5 shadow-soft-lg backdrop-blur-md">
+      <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-white/10 bg-[#1c1b19]/90 py-1.5 pl-2 pr-1.5 shadow-soft-lg backdrop-blur-md">
         <div className="px-1.5">
           <Logo onDark />
         </div>

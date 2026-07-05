@@ -83,7 +83,7 @@ export function StrollingGuide() {
         style={{
           left: `${x}%`,
           marginLeft: "-60px",
-          bottom: "-46px",
+          bottom: "-30px",
           transition: dur ? `left ${dur}ms linear` : "none",
         }}
       >
